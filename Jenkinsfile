@@ -1,5 +1,5 @@
 pipeline {
-   agent none
+   agent any
     stages {
         stage('Back-end') {
             steps {
@@ -19,10 +19,11 @@ pipeline {
                 sh 'node --version'
             }
         }
-        stage('list directory') {       
-           agent none
+        stage('list directory') { 
+          
             steps {
                 sh 'ls -lrt'
+                sh 'cal'
             }
         }
         stage('python version'){
