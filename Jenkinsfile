@@ -23,7 +23,7 @@ pipeline {
           
             steps {
                 sh 'ls -lrt'
-                sh 'cal'
+               
             }
         }
         stage('python version'){
