@@ -22,7 +22,7 @@ pipeline {
         stage('list directory') { 
           
             steps {
-                sh 'ls -lrt'
+                sh 'docker ps'
                
             }
         }
