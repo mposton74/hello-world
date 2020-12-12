@@ -1,5 +1,7 @@
-pipeline{
-    agent any
+pipeline {
+    agent {
+        docker { image 'node:14-alpine' }
+    }
     stages {
         stage('Back-end') {
             steps {
@@ -11,9 +13,9 @@ pipeline{
                 echo 'hello from front end'
             }
         }
-        stage('Test'){
-            steps{
-                echo 'testing ..........'
+        stage('Test') {
+            steps {
+                sh 'node --version'
             }
         }
     }
