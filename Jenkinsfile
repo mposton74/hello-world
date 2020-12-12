@@ -19,9 +19,10 @@ pipeline {
                 sh 'node --version'
             }
         }
-        stage('list directory') {            
+        stage('list directory') {       
+           agent none
             steps {
-                ls -lrt
+                sh 'ls -lrt'
             }
         }
         stage('python version'){
