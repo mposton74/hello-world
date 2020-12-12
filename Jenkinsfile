@@ -4,11 +4,9 @@ pipeline {
         stage('Build') {
             steps {
                 sh './gradlew clean'
-            }
-            steps{                
                 sh './gradlew assemble'
             }
-
+            
         }
         stage('Test') {
             steps {
