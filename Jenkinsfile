@@ -1,17 +1,18 @@
 pipeline {
    agent any
     stages {
-        stage('Back-end') {
+        stage('Build') {
             steps {
-                echo 'hello from back end'
-            }
-        }
-        stage('Front-end') {
-            steps {
-                echo 'hello from front end'
+                sh './gradlew clean'
+                sh './gradlew assemble'
             }
         }
         stage('Test') {
+            steps {
+                sh './gradlew test'
+            }
+        }
+        stage('Integration') {
             agent {
                 docker { image 'node:14-alpine' }
             }
@@ -19,18 +20,6 @@ pipeline {
                 sh 'node --version'
             }
         }
-        stage('list directory') { 
-          
-            steps {
-                sh 'docker ps'
-               
-            }
-        }
-        stage('python version'){
-            agent { docker { image 'python:3' } }
-            steps{
-                sh 'python3 --version'
-            }
-        }
+        
     }
 }
