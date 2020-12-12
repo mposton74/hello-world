@@ -18,7 +18,7 @@ pipeline {
                 sh 'node --version'
             }
         }
-        stage('Test') {            
+        stage('list directory') {            
             steps {
                 sh 'ls -lrt'
             }
