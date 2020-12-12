@@ -17,6 +17,9 @@ pipeline {
             steps {
                 sh 'node --version'
             }
+            steps {
+                sh 'ls -lrt'
+            }
         }
     }
 }
