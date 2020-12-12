@@ -11,5 +11,10 @@ pipeline{
                 echo 'hello from front end'
             }
         }
+        stage('Test'){
+            steps{
+                echo 'testing ..........'
+            }
+        }
     }
 }
