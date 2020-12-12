@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        docker { image 'node:14-alpine' }
-    }
+    agent none
     stages {
         stage('Back-end') {
             steps {
@@ -14,6 +12,9 @@ pipeline {
             }
         }
         stage('Test') {
+            agent {
+                docker { image 'node:14-alpine' }
+            }
             steps {
                 sh 'node --version'
             }
@@ -21,6 +22,12 @@ pipeline {
         stage('list directory') {            
             steps {
                 sh 'ls -lrt'
+            }
+        }
+        stage('python version'){
+            agent { docker { image 'python:3' } }
+            steps{
+                sh 'python3 --version'
             }
         }
     }
